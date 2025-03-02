@@ -67,3 +67,30 @@ function addProductItem(productName) { // Create a function to add a new product
 addProductItem('Laptop');
 addProductItem('Smart Phone');
 addProductItem('Laptop');
+
+// Task 4
+const customerSection = document.createElement('div'); // Creates the parent container
+customerSection.setAttribute('id', 'customerSection'); // Assigns an id to the parent container
+
+function createCustomerCard(customerName) {// Function to create a customer card
+    const customerCard = document.createElement('div'); // Creates a new <div> element to represent the customer card
+    customerCard.setAttribute('class', 'customer-card'); // Assigns a class to the customer card
+    customerCard.textContent = customerName; // Sets the text content of the customer card
+
+    customerCard.addEventListener('click', function(event) { // Adds a click event listener to the customer card
+        console.log('Customer card clicked'); // Logs a message when the customer card is clicked
+        event.stopPropagation(); // Stops the event from bubbling up to the parent container
+    });
+
+    return customerCard; // Returns the created customer card
+}
+
+customerSection.appendChild(createCustomerCard('Customer 1'));// Adds customer cards to the customer section
+customerSection.appendChild(createCustomerCard('Customer 2'));
+customerSection.appendChild(createCustomerCard('Customer 3'));
+
+customerSection.addEventListener('click', function() {// Adds a click event listener to the parent container
+    console.log('Customer section clicked'); // Logs a message when the parent container is clicked
+});
+
+document.body.appendChild(customerSection);// Appends the customer section to the body or another container
